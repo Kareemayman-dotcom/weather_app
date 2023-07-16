@@ -172,7 +172,7 @@ packages:
     source: hosted
     version: "1.8.3"
   provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: provider
       sha256: dc18c7bddb94a1eb3c3154587d16175a657356c80566712e6cd8ca4825eae112

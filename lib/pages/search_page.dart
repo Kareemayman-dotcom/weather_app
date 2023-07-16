@@ -4,7 +4,6 @@ import 'package:weather_app/cubits/weather_cubit/weather_cubit.dart';
 
 class SearchPage extends StatelessWidget {
   String? cityName;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
