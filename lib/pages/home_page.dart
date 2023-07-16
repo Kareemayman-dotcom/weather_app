@@ -19,26 +19,26 @@ class HomePage extends StatelessWidget {
                 return SearchPage();
               }));
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
-        title: Text('Weather App'),
+        title: const Text('Weather App'),
       ),
       body: BlocBuilder<WeatherCubit, WeatherState>(
         builder: (context, state) {
           if (state is WeatherLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is WeatherSuccess) {
             // weatherData = BlocProvider.of<WeatherCubit>(context).weatherModel;
             return SuccessBody(weatherData: state.weatherModel);
           } else if (state is WeatherFailure) {
-            return Center(
+            return const Center(
               child: Text("Something went wrong please try again "),
             );
           } else {
-            return InitalStateBody();
+            return const InitalStateBody();
           }
         },
       ),
@@ -137,7 +137,7 @@ class InitalStateBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -188,25 +188,25 @@ class SuccessBody extends StatelessWidget {
           ),
           Text(
             BlocProvider.of<WeatherCubit>(context).cityName!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
             'updated at : ${weatherData!.date.hour.toString()}:${weatherData!.date.minute.toString()}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 22,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(weatherData!.getImage()),
               Text(
                 weatherData!.temp.toInt().toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -219,15 +219,15 @@ class SuccessBody extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             weatherData!.weatherStateName,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Spacer(
+          const Spacer(
             flex: 5,
           ),
         ],
