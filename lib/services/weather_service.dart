@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/models/weather_model.dart';
 
 class WeatherService {
   String baseUrl = 'http://api.weatherapi.com/v1';
 
-  String apiKey = '3defc4586d344973a0f172814230502';
+  String apiKey = dotenv.env["apiKey"]!;
   Future<WeatherModel> getWeather({required String cityName}) async {
     Uri url =
         Uri.parse('$baseUrl/forecast.json?key=$apiKey&q=$cityName&days=7');
